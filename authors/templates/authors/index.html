@@ -1,0 +1,23 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{%block title%}All Authors {% endblock%}
+
+{% block content %}
+
+  <h2><a href="{% url 'authors.createat' %}" class="btn btn-info"> Create new Author </a></h2>
+  <table class="table">
+    <tr> <th>ID</th> <th>Name</th> <th>Birth</th> <th>photo</th> <th>Show author</th><th>Edit</th><th>Delete</th></tr>
+    {% for author in authors %}
+      <tr>
+        <td>{{author.id}}</td>
+        <td>{{author.name}}</td>
+        <td>{{author.bdate}}</td>
+        <td><img width="100" src="{{author.image_url}}" alt="Card image cap"></td>
+        <td><a href="{{author.show_url}}" class="btn btn-primary"> Show</a></td>
+        <td><a href="{{author.edit_url}}" class="btn btn-warning"> Edit</a></td>
+        <td><a href="{{author.delete_url}}" class="btn btn-danger"> Delete </a></td>
+        
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock%}

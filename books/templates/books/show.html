@@ -1,0 +1,15 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% block title %} Book Details {%endblock %}
+{% block main %}
+        <h1> Book Details </h1>
+        <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{% static 'books/images/'|add:book.image %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{book.name}}</h5>
+    <p class="card-text">author: {{book.author}}</p>
+    <p class="card-text">Price: {{book.price}}</p>
+    <a href="{% url 'books.index'%}" class="btn btn-primary">back to all books</a>
+  </div>
+</div>
+{%endblock %}

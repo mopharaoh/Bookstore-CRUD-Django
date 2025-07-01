@@ -1,0 +1,25 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+{% block title %} All Authors {% endblock %}
+
+{% block content %}
+
+    <h1>Author info </h1>
+
+    <div>
+        <img src="{{object.image_url}}" width="200" height="200">
+    {{author}}
+    </div>
+
+    <div>
+        <h3>{{object}}</h3>
+        <h3>{{object.bdate}}</h3>
+    </div>
+
+    
+
+
+
+</script>
+{% endblock%}

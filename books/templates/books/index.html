@@ -1,0 +1,40 @@
+{% extends 'layout/layout.html' %}
+
+{%block title%}All Books {% endblock%}
+
+
+{% block content %}
+<h1> All Books </h1><br>
+<a href="{% url 'books.create' %}" class="btn btn-dark" >Add new books</a>
+    <table class="table">
+        <!-- {{ books }} -->
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>No of pages</th>
+            <th>Cover</th>
+            <th>Author</th>
+           <th>Price</th>
+           <th>Show</th>
+           <td>Edit</td>
+           <th>Delete</th>
+        </tr>
+        {% for b in books %}
+            <tr>
+                <td>{{b.id}}</td>
+                <td>{{b.name}}</td>
+                <td>{{b.no_of_pages}}</td>
+                <td><img width="100"
+                    src="{{b.image_url}}"> </td>
+                <td>{{b.author}}</td>
+                <td>{{b.price}}</td>
+                <td><a href="{{b.show_url}}" class="btn btn-info">Show</a></td>
+                <td><a href="{{b.edit_url}}" class="btn btn-warning">Edit</a></td>
+                <td><a href="{% url 'books.delete' b.id %}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div>
+        <br><br>
+    </div>
+{% endblock %}

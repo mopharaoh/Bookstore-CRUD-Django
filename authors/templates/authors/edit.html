@@ -1,0 +1,14 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{%block title%}Edit Author {% endblock%}
+
+{% block content %}
+    <h1>Edit Author  </h1>
+<img src="{{form.instance.image_url}}" width="200" height="200">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+
+    <input type="submit" class="btn btn-success">
+</form>
+{% endblock%}

@@ -1,0 +1,16 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{%block title%}delete author {% endblock%}
+
+{% block content %}
+
+    <h1>Delete Author  </h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>Are you want to delete author named {{object}}</p>
+
+    <input type="submit" class="btn btn-danger" value="Delete">
+</form>
+    <a href="{% url 'authors.index'%}" class="btn btn-dark"> Cancel</a>
+</script>
+{% endblock%}

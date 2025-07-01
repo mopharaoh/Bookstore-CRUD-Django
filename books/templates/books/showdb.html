@@ -1,0 +1,20 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+{% block title %} Book profile {%endblock %}
+{% block main %}
+        <h1> Book profile </h1>
+        <div class="card" style="width: 32rem;">
+  <img class="card-img-top" src="{{book.image_url}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{book.name}}</h5>
+    <h4> See also books by the author </h4>
+    <p class="card-text"><a href="{{book.author.show_url}}"> author: {{book.author}} </a></p>
+    <p> {{book.author.name}}</p>
+    <a href="{% url 'books.index'%}" class="btn btn-primary">back to all books</a>
+  </div>
+    {% for b in book.author.books.all %}
+        {% if b.id != book.id %}
+                <li><a href="{{b.show_url}}">{{b}}</a></li>
+        {% endif %}
+    {% endfor %}
+{%endblock %}

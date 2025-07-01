@@ -1,0 +1,27 @@
+{% extends 'layout/layout.html' %}
+{%block title%}Edit book {% endblock%}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="text" name="name" value="{{ book.name }}" class="form-control"  aria-describedby="">
+    </div>
+     <div class="mb-3">
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Price</label>
+    <input type="number" name="price" value="{{ book.price }}" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Number of Pages</label>
+    <input type="number" name="no_of_pages" value="{{ book.no_of_pages }}" class="form-control" id="exampleInputPassword1">
+  </div>
+     <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Cover</label>
+    <input type="file" name="image" value="{{ book.image }}" class="form-control" id="" aria-describedby="">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
